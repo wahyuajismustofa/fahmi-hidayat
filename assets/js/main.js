@@ -261,9 +261,32 @@ function sharePage(title, text) {
     alert(`Bagikan link ini ke temanmu:\n\n${currentUrl}`);
   }
 }
+
+function insertGtagScript() {
+  const head = document.head;
+  if (!head) return;
+
+  if (document.querySelector('script[src*="gtag/js?id=G-CX75BENSVP"]')) return;
+
+  const gtagScript = document.createElement('script');
+  gtagScript.async = true;
+  gtagScript.src = `https://www.googletagmanager.com/gtag/js?id=G-CX75BENSVP`;
+
+  const gtagConfigScript = document.createElement('script');
+  gtagConfigScript.text = `
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-CX75BENSVP');
+  `;
+  head.appendChild(gtagScript);
+  head.appendChild(gtagConfigScript);
+}
+
 document.addEventListener('DOMContentLoaded', function () {
 	
 	lazyLoadImg();
+	insertGtagScript();
 	
   const form = document.getElementById('whatsapp-form');
 
