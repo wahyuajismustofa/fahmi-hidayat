@@ -266,18 +266,18 @@ function insertGtagScript() {
   const head = document.head;
   if (!head) return;
 
-  if (document.querySelector('script[src*="gtag/js?id=G-CX75BENSVP"]')) return;
+  if (document.querySelector('script[src*="gtag/js?id=G-WEC51KDB73"]')) return;
 
   const gtagScript = document.createElement('script');
   gtagScript.async = true;
-  gtagScript.src = `https://www.googletagmanager.com/gtag/js?id=G-CX75BENSVP`;
+  gtagScript.src = `https://www.googletagmanager.com/gtag/js?id=G-WEC51KDB73`;
 
   const gtagConfigScript = document.createElement('script');
   gtagConfigScript.text = `
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
-    gtag('config', 'G-CX75BENSVP');
+    gtag('config', 'G-WEC51KDB73');
   `;
   head.appendChild(gtagScript);
   head.appendChild(gtagConfigScript);
